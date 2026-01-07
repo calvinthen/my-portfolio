@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/navbar";
+import Projects from "./components/Projects";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <h1 className="text-4xl font-bold text-blue-500">
         <Navbar/>
         <Hero/>
+        <Projects/>
       </h1>
     </div>
   );
