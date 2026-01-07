@@ -2,8 +2,8 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-slate-900 text-white px-6">
       <div className="max-w-3xl text-center pt-20">
-        <h2 className="text-xl text-blue-500 font-medium mb-4">
-          Hello, I'm Calvin Then
+        <h2 className="text-3xl text-blue-500 font-medium mb-4">
+          Hello, I'm  <span className="text-white"> Calvin Then </span>
         </h2>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
