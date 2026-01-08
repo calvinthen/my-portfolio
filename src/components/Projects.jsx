@@ -4,7 +4,7 @@ const Projects = () => {
   
   const projects = [
     {
-      title: "DragonNest Mod Manager",
+      title: "File Junk Finder",
       description: "A desktop GUI application to manage, install, and delete specific game mod files safely without breaking the game client.",
       tech: ["Python", "Tkinter", "File I/O"],
     },
