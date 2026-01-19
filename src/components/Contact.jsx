@@ -27,15 +27,20 @@ const Contact = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
                             Message
                         </label>
-                        <textarea name="" id="">
+                        <textarea
+                          id="message"
+                          rows="4"
+                          className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-500"
+                          placeholder="Hi, i'd like to contact you..."
+                        >
 
                         </textarea>
                     </div>
 
-                    <button>
+                    <button className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-300">
                         Send Message
                     </button>
                 </form>
