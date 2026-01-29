@@ -1,4 +1,37 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
 const Contact = () => {
+    const formRef = useRef();
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        emailjs
+      .sendForm(
+        "service_wt66nwb",    
+        "template_nrb5ibr",   
+        formRef.current,
+        {
+          publicKey: "mz8a17Ox1E3h88xFO",
+        }
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you for contacting me :)");
+          formRef.current.reset();
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+          alert("Something went wrong. Please try again.");
+        }
+      );
+
+    }
   return (
     <section id="contact" className="py-20 bg-slate-900">
         <div className="container mx-auto px-6">
@@ -40,8 +73,11 @@ const Contact = () => {
                         </textarea>
                     </div>
 
-                    <button className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-300">
-                        Send Message
+                    <button 
+                    type="submit"
+                    disabled={loading}
+                    className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-300">
+                       {loading ? "Sending..." : "Send Message"}
                     </button>
                 </form>
             </div>
