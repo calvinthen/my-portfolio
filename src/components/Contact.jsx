@@ -45,7 +45,10 @@ const Contact = () => {
                 </p>
             
 
-                <form className="space-y-6 text-left">
+                <form 
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-6 text-left">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
                             Your Email
@@ -53,6 +56,8 @@ const Contact = () => {
                         <input 
                         type="email" 
                         id="email"
+                        name="from_email"
+                        required
                         className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-500"
                         placeholder="example@gmail.com"
                         />
@@ -65,6 +70,8 @@ const Contact = () => {
                         </label>
                         <textarea
                           id="message"
+                          name="message"
+                          required
                           rows="4"
                           className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-500"
                           placeholder="Hi, i'd like to contact you..."
@@ -74,9 +81,9 @@ const Contact = () => {
                     </div>
 
                     <button 
-                    type="submit"
-                    disabled={loading}
-                    className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-300">
+                      type="submit"
+                      disabled={loading}
+                      className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-300">
                        {loading ? "Sending..." : "Send Message"}
                     </button>
                 </form>
