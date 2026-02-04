@@ -20,7 +20,7 @@ const Hero = () => {
             View My Work
           </a>
 
-          <a href="" className="px-8 py-3 border border-slate-700 hover:border-blue-500 rounded-full font-medium transition">
+          <a href="#contact" className="px-8 py-3 border border-slate-700 hover:border-blue-500 rounded-full font-medium transition">
             Contact Me
           </a>
         </div>
