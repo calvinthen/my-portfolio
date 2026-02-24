@@ -1,37 +1,43 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-    const formRef = useRef();
-    const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        const currentForm = formRef.current;
 
-        emailjs
-      .sendForm(
-        "service_wt66nwb",    
-        "template_nrb5ibr",   
-        formRef.current,
-        {
-          publicKey: "mz8a17Ox1E3h88xFO",
-        }
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you for contacting me :)");
-          formRef.current.reset();
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          alert("Something went wrong. Please try again.");
-        }
-      );
-
+        if (currentForm === null) {
+        setLoading(false);
+        return;
     }
+
+    emailjs
+          .sendForm(
+            "service_wt66nwb",    
+            "template_nrb5ibr",   
+            currentForm, 
+            {
+              publicKey: "mz8a17Ox1E3h88xFO",
+            }
+          )
+          .then(
+            () => {
+              setLoading(false);
+              alert("Thank you for contacting me :)");
+              currentForm.reset();
+            },
+            (error) => {
+              setLoading(false);
+              console.error(error);
+              alert("Something went wrong. Please try again.");
+            }
+          );
+      };
+      
   return (
     <section id="contact" className="py-20 bg-slate-900">
         <div className="container mx-auto px-6">
@@ -72,7 +78,7 @@ const Contact = () => {
                           id="message"
                           name="message"
                           required
-                          rows="4"
+                          rows={4}
                           className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-500"
                           placeholder="Hi, i'd like to contact you..."
                         >

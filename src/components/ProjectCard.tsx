@@ -1,4 +1,10 @@
-const ProjectCard = ({title, description, tech}) => {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  tech: string[]; 
+}
+
+const ProjectCard = ({ title, description, tech }: ProjectCardProps) => {
   return (
     <div className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition duration-300 shadow-lg border border-slate-700 group">
 
@@ -16,6 +22,7 @@ const ProjectCard = ({title, description, tech}) => {
         </p>
 
         <div className="flex flex-wrap gap-2">
+          {/* TypeScript now knows 'item' is a string because we defined 'tech' as string[] */}
           {tech.map((item, index) => (
             <span 
               key={index} 
