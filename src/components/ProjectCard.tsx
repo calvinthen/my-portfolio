@@ -2,14 +2,16 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tech: string[]; 
+  image: string;
 }
 
-const ProjectCard = ({ title, description, tech }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tech, image }: ProjectCardProps) => {
   return (
     <div className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition duration-300 shadow-lg border border-slate-700 group">
 
       <div className="h-48 bg-slate-700 flex items-center justify-center group-hover:bg-blue-900/20 transition">
-        <span className="text-slate-500 text-4xl"> Waiting for Image... </span>
+        <img src={image} alt={title} className="w-full h-full group-hover:scale-110 transition duration-500"
+        />
       </div>
 
       <div className="p-6"> 
@@ -22,7 +24,6 @@ const ProjectCard = ({ title, description, tech }: ProjectCardProps) => {
         </p>
 
         <div className="flex flex-wrap gap-2">
-          {/* TypeScript now knows 'item' is a string because we defined 'tech' as string[] */}
           {tech.map((item, index) => (
             <span 
               key={index} 

@@ -7,16 +7,19 @@ const Projects = () => {
       title: "File Junk Finder",
       description: "A desktop GUI application to manage, install, and delete specific game mod files safely without breaking the game client.",
       tech: ["Python", "Tkinter", "File I/O"],
+      image: "/python.png",
     },
     {
       title: "DevFolio Portfolio",
       description: "A high-performance personal portfolio website featuring modern UI/UX, responsive design, and animations.",
       tech: ["React", "Tailwind CSS", "Vite"],
+      image: "/python.png",
     },
     {
       title: "E-Commerce Dashboard",
       description: "A mock analytics dashboard for tracking sales data, featuring charts and data visualization.",
       tech: ["React", "Chart.js", "API Integration"],
+      image: "/python.png",
     },
   ];
   
@@ -34,6 +37,7 @@ const Projects = () => {
                         title={project.title} 
                         description={project.description} 
                         tech={project.tech}
+                        image={project.image}
                     />
                 ))}
             </div>
