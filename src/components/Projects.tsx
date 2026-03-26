@@ -1,4 +1,3 @@
-import { link } from "node:fs";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
