@@ -18,7 +18,7 @@ const Projects = () => {
     {
       title: "E-Commerce Dashboard",
       description: "A mock analytics dashboard for tracking sales data, featuring charts and data visualization.",
-      tech: ["React", "Chart.js", "API Integration"],
+      tech: ["TypeScript", "Tailwind CSS", "Recharts"],
       image: "/dashboard.png",
       link: "https://e-commerce-dashboard-one-chi.vercel.app/",
     },
@@ -31,7 +31,7 @@ const Projects = () => {
                 Featured <span className="text-blue-500"> Projects</span>
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hover:cursor-pointer">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
                 {projects.map((project, index) => (
                     <ProjectCard 
